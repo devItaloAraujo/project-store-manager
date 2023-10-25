@@ -25,8 +25,18 @@ const insertProduct = async (body) => {
   return { status: 201, data };
 };
 
+const deleteProduct = async (id) => {
+  const productsList = await productsModel.findAll();
+  if (!productsList.some((item) => item.id === Number(id))) {
+    return { status: 404, data: { message: 'Product not found' } };
+  }
+  await productsModel.deleteProduct(id);
+  return { status: 201 };
+};
+
 module.exports = {
   findAll,
   findById,
   insertProduct,
+  deleteProduct,
 };
