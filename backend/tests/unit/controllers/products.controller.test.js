@@ -44,4 +44,18 @@ describe('Testes Unitários - CONTROLLER PRODUTOS', function () {
     expect(res.status).to.have.been.calledWith(200);
     expect(res.json).to.have.been.calledWith(mockProductList[0]);
   });
+
+  it('Retorna corretamente o status 204 quando deletado item existente', async function () {
+    sinon.stub(productsService, 'deleteProduct').resolves({ status: 204 });
+
+    const req = { params: { id: 1 } };
+    const res = {
+      status: sinon.stub().returnsThis(),
+      send: sinon.stub().returnsThis(),
+    };
+
+    await productsController.deleteProduct(req, res);
+
+    expect(res.status).to.have.been.calledWith(204);
+  });
 });

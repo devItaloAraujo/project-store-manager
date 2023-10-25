@@ -32,4 +32,13 @@ describe('Testes Unitários - SERVICE PRODUTOS', function () {
     expect(status).to.be.equal(400);
     expect(data).to.deep.equal({ message: '"name" is required' });
   });
+  it('Retorna status 422 e mensagem correta quando req tem name menor que 5 caracteres', async function () {
+    const body = {
+      name: 'tres',
+    };
+    const { status, data } = await productsService.insertProduct(body);
+
+    expect(status).to.be.equal(422);
+    expect(data).to.deep.equal({ message: '"name" length must be at least 5 characters long' });
+  });
 });
