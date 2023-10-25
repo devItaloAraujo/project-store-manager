@@ -18,7 +18,7 @@ describe('Testes Unitários - SERVICE PRODUTOS', function () {
     expect(data).to.be.equal(mockProductList);
   });
   it('Retorna corretamente um produto e o status 200', async function () {
-    sinon.stub(productsModel, 'findAll').resolves(mockProductList[0]);
+    sinon.stub(productsModel, 'findById').resolves(mockProductList[0]);
 
     const { status, data } = await productsService.findById(1);
 

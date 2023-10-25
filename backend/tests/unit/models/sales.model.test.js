@@ -14,13 +14,13 @@ describe('Testes Unitários - MODEL SALES', function () {
 
     const result = await salesModel.findAll();
 
-    expect(result).to.be.equal(mockSalesList);
+    expect(result).to.deep.equal(mockSalesList);
   });
   it('Retorna corretamente uma venda', async function () {
     sinon.stub(connection, 'execute').resolves([mockSaleById]);
 
     const result = await salesModel.findById(1);
 
-    expect(result).to.be.equal(mockSaleById);
+    expect(result).to.deep.equal(mockSaleById);
   });
 });
