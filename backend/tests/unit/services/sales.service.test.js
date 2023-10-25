@@ -25,4 +25,59 @@ describe('Testes Unitários - SERVICE SALES', function () {
     expect(status).to.be.equal(200);
     expect(data).to.deep.equal(mockSaleById);
   });
+  it('Retorna status 400 e mensagem correta quando req não tem productId', async function () {
+    const body = [
+      {
+        quantity: 1,
+      },
+      {
+        productId: 2,
+        quantity: 5,
+      },
+    ];
+    
+    const { status, data } = await salesService.insertSale(body);
+
+    expect(status).to.be.equal(400);
+    expect(data).to.deep.equal({ message: '"productId" is required' });
+  });
+  it('Retorna status 400 e mensagem correta quando req não tem quantity', async function () {
+    const body = [
+      {
+        productId: 2,
+      },
+    ];
+    const { status, data } = await salesService.insertSale(body);
+
+    expect(status).to.be.equal(400);
+    expect(data).to.deep.equal({ message: '"quantity" is required' });
+  });
+  it('Retorna status 422 e mensagem correta quando req tem quantity negativa ou zero', async function () {
+    const body = [
+      {
+        productId: 1,
+        quantity: 0,
+      },
+      {
+        productId: 2,
+        quantity: 5,
+      },
+    ];
+    const { status, data } = await salesService.insertSale(body);
+
+    expect(status).to.be.equal(422);
+    expect(data).to.deep.equal({ message: '"quantity" must be greater than or equal to 1' });
+  });
+  it('Retorna status 404 e mensagem correta quando req tem productId inexistente', async function () {
+    const body = [
+      {
+        productId: 808,
+        quantity: 1,
+      },
+    ];
+    const { status, data } = await salesService.insertSale(body);
+
+    expect(status).to.be.equal(404);
+    expect(data).to.deep.equal({ message: 'Product not found' });
+  });
 });

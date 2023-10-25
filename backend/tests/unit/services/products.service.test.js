@@ -25,4 +25,11 @@ describe('Testes Unitários - SERVICE PRODUTOS', function () {
     expect(status).to.be.equal(200);
     expect(data).to.deep.equal(mockProductList[0]);
   });
+  it('Retorna status 400 e mensagem correta quando req não tem name', async function () {
+    const body = {};
+    const { status, data } = await productsService.insertProduct(body);
+
+    expect(status).to.be.equal(400);
+    expect(data).to.deep.equal({ message: '"name" is required' });
+  });
 });
