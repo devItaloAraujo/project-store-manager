@@ -15,6 +15,12 @@ const findById = async (id) => {
 };
 
 const insertProduct = async (body) => {
+  if (!body.name) {
+    return { status: 400, data: { message: '"name" is required' } };
+  }
+  if (body.name.length < 5) {
+    return { status: 422, data: { message: '"name" length must be at least 5 characters long' } };
+  }
   const data = await productsModel.insertProduct(body);
   return { status: 201, data };
 };
