@@ -29,7 +29,7 @@ Testes unitários desenvolvidos utilizando as bibliotecas Node Sinon e Chai.
 - Em um novo terminal, acesse o contâiner rodando o back-end com o comando: **docker exec -i store_manager bash**
 - Dentro do novo terminal do contâiner utilize os testes com: **npm run test:mocha**
 
-
+![Captura de tela de 2024-01-04 11-17-13](https://github.com/devItaloAraujo/project-store-manager/assets/45125829/8bc56054-6b17-4d3b-8d86-e4987ca2cafa)
 
 
 
