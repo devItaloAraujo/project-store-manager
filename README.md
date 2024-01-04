@@ -2,7 +2,7 @@
 
 ## Contexto
 
-Este projeto é uma aplicação back-end no formato CRUD. Trata-se de um app de admnistração simplificada de uma loja. É possível acessar endpoints para listar os produtos ou as vendas realizadas, além de poder adicionar e deletar produtos e inserir novas vendas.
+Este projeto é uma aplicação back-end no formato CRUD. Trata-se de um app de administração simplificada de uma loja. É possível acessar endpoints para listar os produtos ou as vendas realizadas, além de poder adicionar e deletar produtos e inserir novas vendas.
 
 Os dados da loja são salvos em um banco de dados SQL em um contâiner do docker enquanto o back-end para fornecer os endpoints ficam em outro, os dois são orquestrados pelo docker-compose e conectados pela biblioteca MySQL2 do Node.
 
