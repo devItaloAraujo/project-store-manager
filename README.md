@@ -23,7 +23,7 @@ Testes unitários desenvolvidos utilizando as bibliotecas Node Sinon e Chai.
 - Clone esse repositório em uma pasta.
 - É necessário ter o docker-compose, execute o comando: **docker-compose up --build**
 - Pronto, o terminal irá mostrar que está conectado a porta 3001
-- Confira os endpoints GET e POST em /products and /sales e os deamais explorando os arquivos do router.
+- Confira os endpoints GET e POST em /products and /sales e os demais explorando os arquivos do router.
 
 ## Testes
 - Em um novo terminal, acesse o contâiner rodando o back-end com o comando: **docker exec -i store_manager bash**
